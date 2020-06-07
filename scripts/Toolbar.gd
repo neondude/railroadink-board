@@ -17,3 +17,5 @@ func on_tool_selected(tool_node):
 	var play_grid = get_node(play_grid_path)
 	play_grid.tool_type = tool_node.tool_type
 	play_grid.tool_ability = tool_node.tool_ability
+	play_grid.cursor_tip.texture = tool_node.icon_texture
+	Input.set_custom_mouse_cursor(tool_node.icon_texture.get_data())

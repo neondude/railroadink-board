@@ -2,10 +2,14 @@ extends Node2D
 
 onready var tile_grid = get_node("TileGrid")
 onready var cursor = get_node("Cursor")
+onready var cursor_tip = get_node("Cursor/Cursor")
 
 
 var tool_type
 var tool_ability
+var tool_texture
+
+
 
 func _ready():
 	cursor.visible = false
@@ -30,7 +34,6 @@ func update_cursor(coords):
 		if cursor != null:
 			cursor.visible = is_inside_playgrid(coords)
 			cursor.position = tile_grid.map_to_world(coords)
-#			print(coords)
 			
 func is_inside_playgrid(coords):
 	if coords.x < 0 or coords.x >= 7:

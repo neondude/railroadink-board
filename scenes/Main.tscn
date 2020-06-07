@@ -30,7 +30,15 @@
 position = Vector2( 80, 344 )
 script = ExtResource( 8 )
 
-[node name="TextureRect" type="TextureRect" parent="PlayGrid"]
+[node name="GridBGColor" type="ColorRect" parent="PlayGrid"]
+margin_right = 448.0
+margin_bottom = 448.0
+color = Color( 0.804688, 0.944803, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridImage" type="TextureRect" parent="PlayGrid"]
 margin_left = -4.0
 margin_top = -4.0
 margin_right = 451.0
@@ -48,6 +56,10 @@ tile_data = PoolIntArray( -65535, 15, 0, -65533, 16, 0, -65531, 15, 0, 131071, -
 [node name="Cursor" type="Sprite" parent="PlayGrid"]
 texture = ExtResource( 1 )
 centered = false
+
+[node name="Cursor" type="Sprite" parent="PlayGrid/Cursor"]
+scale = Vector2( 0.5, 0.5 )
+offset = Vector2( 96, 96 )
 
 [node name="Toolbar" type="Node2D" parent="."]
 position = Vector2( 72, 48 )
@@ -89,81 +101,101 @@ icon_texture = ExtResource( 18 )
 tool_type = "apply"
 tool_ability = 6
 
+[node name="ColorRect" type="ColorRect" parent="Toolbar"]
+margin_left = -8.0
+margin_top = 80.0
+margin_right = 472.0
+margin_bottom = 82.0
+color = Color( 1, 0.4, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( -16, 89 )
+position = Vector2( -16, 105 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 6 )
 tool_type = "apply"
 tool_ability = 3
 
 [node name="TrainIntersection" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 40, 88 )
+position = Vector2( 40, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 3 )
 tool_type = "apply"
 tool_ability = 2
 
 [node name="TrainStraight" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 96, 88 )
+position = Vector2( 96, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 2 )
 tool_type = "apply"
 
 [node name="HighwayTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 152, 88 )
+position = Vector2( 152, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 15 )
 tool_type = "apply"
 tool_ability = 12
 
 [node name="HighwayIntersection" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 208, 88 )
+position = Vector2( 208, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 14 )
 tool_type = "apply"
 tool_ability = 10
 
 [node name="HighwayStriaght" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 264, 88 )
+position = Vector2( 264, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 16 )
 tool_type = "apply"
 tool_ability = 11
 
 [node name="HighwayTrainFlyover" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 320, 88 )
+position = Vector2( 320, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 17 )
 tool_type = "apply"
 tool_ability = 13
 
 [node name="HighwayTrain" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 376, 88 )
+position = Vector2( 376, 104 )
 scale = Vector2( 0.65, 0.65 )
 tool_type = "apply"
 tool_ability = 4
 
 [node name="HighwayTrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 432, 88 )
+position = Vector2( 432, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 20 )
 tool_type = "apply"
 tool_ability = 14
 
+[node name="ColorRect2" type="ColorRect" parent="Toolbar"]
+margin_left = -8.0
+margin_top = 160.0
+margin_right = 472.0
+margin_bottom = 162.0
+color = Color( 1, 0.4, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Rotate" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 104, 160 )
+position = Vector2( 104, 184 )
 icon_texture = ExtResource( 21 )
 tool_type = "rotate"
 tool_ability = 1
 
 [node name="Flip" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 184, 160 )
+position = Vector2( 184, 184 )
 icon_texture = ExtResource( 22 )
 tool_type = "flip"
 tool_ability = 1
 
 [node name="Delete" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 264, 160 )
+position = Vector2( 264, 184 )
 icon_texture = ExtResource( 23 )
 tool_type = "delete"
 tool_ability = 1
