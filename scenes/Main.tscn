@@ -1,3 +1,169 @@
-[gd_scene format=2]
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/tile_map_highlight.svg" type="Texture" id=1]
+[ext_resource path="res://assets/train_straight.svg" type="Texture" id=2]
+[ext_resource path="res://assets/train_intersection.svg" type="Texture" id=3]
+[ext_resource path="res://assets/train_cross.svg" type="Texture" id=4]
+[ext_resource path="res://resources/railroad_tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/train_turn.svg" type="Texture" id=6]
+[ext_resource path="res://assets/grid_bg.png" type="Texture" id=7]
+[ext_resource path="res://scripts/PlayGrid.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Toolbar.gd" type="Script" id=9]
+[ext_resource path="res://scenes/ClickableTool.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/3highway_train_cross.svg" type="Texture" id=11]
+[ext_resource path="res://assets/highway_3train_cross.svg" type="Texture" id=12]
+[ext_resource path="res://assets/highway_cross.svg" type="Texture" id=13]
+[ext_resource path="res://assets/highway_intersection.svg" type="Texture" id=14]
+[ext_resource path="res://assets/highway_turn.svg" type="Texture" id=15]
+[ext_resource path="res://assets/highway_straight.svg" type="Texture" id=16]
+[ext_resource path="res://assets/train_highway_flyover.svg" type="Texture" id=17]
+[ext_resource path="res://assets/2highway_2train_cross_straight.svg" type="Texture" id=18]
+[ext_resource path="res://assets/2highway_2train_cross.svg" type="Texture" id=19]
+[ext_resource path="res://assets/train_highway_junction_turn.svg" type="Texture" id=20]
+[ext_resource path="res://assets/rotate_icon.svg" type="Texture" id=21]
+[ext_resource path="res://assets/flip_icon.svg" type="Texture" id=22]
+[ext_resource path="res://assets/clear_icon.svg" type="Texture" id=23]
 
 [node name="Main" type="Node2D"]
+
+[node name="PlayGrid" type="Node2D" parent="."]
+position = Vector2( 80, 344 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="PlayGrid"]
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 451.0
+margin_bottom = 451.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileGrid" type="TileMap" parent="PlayGrid"]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( -65535, 15, 0, -65533, 16, 0, -65531, 15, 0, 131071, -1073741808, 0, 65543, -1610612720, 0, 262143, -1073741809, 0, 196615, -1610612721, 0, 393215, -1073741808, 0, 327687, -1610612720, 0, 458753, 1610612751, 0, 458755, 1610612752, 0, 458757, 1610612751, 0 )
+
+[node name="Cursor" type="Sprite" parent="PlayGrid"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Toolbar" type="Node2D" parent="."]
+position = Vector2( 72, 48 )
+script = ExtResource( 9 )
+play_grid_path = NodePath("../PlayGrid")
+
+[node name="3HighwayTrainCross" parent="Toolbar" instance=ExtResource( 10 )]
+icon_texture = ExtResource( 11 )
+tool_type = "apply"
+tool_ability = 7
+
+[node name="Highway3TrainCross" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 80, 0 )
+icon_texture = ExtResource( 12 )
+tool_type = "apply"
+tool_ability = 8
+
+[node name="HighwayCross" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 160, 0 )
+icon_texture = ExtResource( 13 )
+tool_type = "apply"
+tool_ability = 9
+
+[node name="TrainCross" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 240, 0 )
+icon_texture = ExtResource( 4 )
+tool_type = "apply"
+tool_ability = 1
+
+[node name="2Highway2TrainCross" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 320, 0 )
+icon_texture = ExtResource( 19 )
+tool_type = "apply"
+tool_ability = 5
+
+[node name="2Highway2TrainCrossStraight" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 400, 0 )
+icon_texture = ExtResource( 18 )
+tool_type = "apply"
+tool_ability = 6
+
+[node name="TrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( -16, 89 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 6 )
+tool_type = "apply"
+tool_ability = 3
+
+[node name="TrainIntersection" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 40, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 3 )
+tool_type = "apply"
+tool_ability = 2
+
+[node name="TrainStraight" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 96, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 2 )
+tool_type = "apply"
+
+[node name="HighwayTurn" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 152, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 15 )
+tool_type = "apply"
+tool_ability = 12
+
+[node name="HighwayIntersection" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 208, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 14 )
+tool_type = "apply"
+tool_ability = 10
+
+[node name="HighwayStriaght" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 264, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 16 )
+tool_type = "apply"
+tool_ability = 11
+
+[node name="HighwayTrainFlyover" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 320, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 17 )
+tool_type = "apply"
+tool_ability = 13
+
+[node name="HighwayTrain" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 376, 88 )
+scale = Vector2( 0.65, 0.65 )
+tool_type = "apply"
+tool_ability = 4
+
+[node name="HighwayTrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 432, 88 )
+scale = Vector2( 0.65, 0.65 )
+icon_texture = ExtResource( 20 )
+tool_type = "apply"
+tool_ability = 14
+
+[node name="Rotate" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 104, 160 )
+icon_texture = ExtResource( 21 )
+tool_type = "rotate"
+tool_ability = 1
+
+[node name="Flip" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 184, 160 )
+icon_texture = ExtResource( 22 )
+tool_type = "flip"
+tool_ability = 1
+
+[node name="Delete" parent="Toolbar" instance=ExtResource( 10 )]
+position = Vector2( 264, 160 )
+icon_texture = ExtResource( 23 )
+tool_type = "delete"
+tool_ability = 1

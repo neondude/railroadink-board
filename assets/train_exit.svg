@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="fill:#ff6600;stroke-width:0.409891;stroke-linecap:square;stroke-linejoin:round;paint-order:markers stroke fill"
+     id="rect1173"
+     width="4.7624998"
+     height="1.0583332"
+     x="6.0854168"
+     y="15.875" />
+  <path
+     style="fill:#ff6600;stroke-width:0.529167;stroke-linecap:square;stroke-linejoin:round;paint-order:markers stroke fill"
+     id="path1175"
+     d="m 11.771312,15.610417 -6.6092898,0 3.304645,-5.7238129 z"
+     transform="matrix(1.330865,0,0,0.60146044,-2.8013242,6.4890156)" />
+  <rect
+     y="11.1125"
+     x="8.2020836"
+     height="5.8208323"
+     width="0.52916694"
+     id="rect848"
+     style="fill:#212121;fill-opacity:1;stroke:none;stroke-width:0.146382;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <rect
+     ry="0.26458332"
+     style="fill:#212121;fill-opacity:1;stroke:none;stroke-width:0.546521;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect860"
+     width="4.2333331"
+     height="0.52916664"
+     x="6.3499999"
+     y="14.552083" />
+  <rect
+     ry="0.26458281"
+     style="fill:#212121;fill-opacity:1;stroke:none;stroke-width:0.546521;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect864"
+     width="4.2333331"
+     height="0.52916664"
+     x="6.3500004"
+     y="12.435417" />
+</svg>
