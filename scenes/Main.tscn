@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/tile_map_highlight.svg" type="Texture" id=1]
 [ext_resource path="res://assets/train_straight.svg" type="Texture" id=2]
@@ -23,11 +23,44 @@
 [ext_resource path="res://assets/rotate_icon.svg" type="Texture" id=21]
 [ext_resource path="res://assets/flip_icon.svg" type="Texture" id=22]
 [ext_resource path="res://assets/clear_icon.svg" type="Texture" id=23]
+[ext_resource path="res://assets/train_highway_junction_straight.svg" type="Texture" id=24]
+[ext_resource path="res://scenes/Dice.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/DiceBar.gd" type="Script" id=27]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.4, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.55127, 0.220508, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.4, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Main" type="Node2D"]
+position = Vector2( 0, -8 )
+__meta__ = {
+"_edit_vertical_guides_": [ 304.0 ]
+}
 
 [node name="PlayGrid" type="Node2D" parent="."]
-position = Vector2( 80, 344 )
+position = Vector2( 80, 296 )
 script = ExtResource( 8 )
 
 [node name="GridBGColor" type="ColorRect" parent="PlayGrid"]
@@ -62,7 +95,7 @@ scale = Vector2( 0.5, 0.5 )
 offset = Vector2( 96, 96 )
 
 [node name="Toolbar" type="Node2D" parent="."]
-position = Vector2( 72, 48 )
+position = Vector2( 72, 32 )
 script = ExtResource( 9 )
 play_grid_path = NodePath("../PlayGrid")
 
@@ -102,9 +135,9 @@ tool_type = "apply"
 tool_ability = 6
 
 [node name="ColorRect" type="ColorRect" parent="Toolbar"]
-margin_left = -8.0
+margin_left = -16.0
 margin_top = 80.0
-margin_right = 472.0
+margin_right = 496.0
 margin_bottom = 82.0
 color = Color( 1, 0.4, 0, 1 )
 __meta__ = {
@@ -112,70 +145,70 @@ __meta__ = {
 }
 
 [node name="TrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( -16, 105 )
+position = Vector2( -8, 105 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 6 )
 tool_type = "apply"
 tool_ability = 3
 
 [node name="TrainIntersection" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 40, 104 )
+position = Vector2( 48, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 3 )
 tool_type = "apply"
 tool_ability = 2
 
 [node name="TrainStraight" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 96, 104 )
+position = Vector2( 104, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 2 )
 tool_type = "apply"
 
 [node name="HighwayTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 152, 104 )
+position = Vector2( 160, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 15 )
 tool_type = "apply"
 tool_ability = 12
 
 [node name="HighwayIntersection" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 208, 104 )
+position = Vector2( 216, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 14 )
 tool_type = "apply"
 tool_ability = 10
 
 [node name="HighwayStriaght" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 264, 104 )
+position = Vector2( 272, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 16 )
 tool_type = "apply"
 tool_ability = 11
 
 [node name="HighwayTrainFlyover" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 320, 104 )
+position = Vector2( 328, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 17 )
 tool_type = "apply"
 tool_ability = 13
 
 [node name="HighwayTrain" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 376, 104 )
+position = Vector2( 384, 104 )
 scale = Vector2( 0.65, 0.65 )
 tool_type = "apply"
 tool_ability = 4
 
 [node name="HighwayTrainTurn" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 432, 104 )
+position = Vector2( 440, 104 )
 scale = Vector2( 0.65, 0.65 )
 icon_texture = ExtResource( 20 )
 tool_type = "apply"
 tool_ability = 14
 
 [node name="ColorRect2" type="ColorRect" parent="Toolbar"]
-margin_left = -8.0
+margin_left = -16.0
 margin_top = 160.0
-margin_right = 472.0
+margin_right = 496.0
 margin_bottom = 162.0
 color = Color( 1, 0.4, 0, 1 )
 __meta__ = {
@@ -183,19 +216,59 @@ __meta__ = {
 }
 
 [node name="Rotate" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 104, 184 )
+position = Vector2( 128, 176 )
+scale = Vector2( 0.75, 0.75 )
 icon_texture = ExtResource( 21 )
 tool_type = "rotate"
 tool_ability = 1
 
 [node name="Flip" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 184, 184 )
+position = Vector2( 208, 176 )
+scale = Vector2( 0.75, 0.75 )
 icon_texture = ExtResource( 22 )
 tool_type = "flip"
 tool_ability = 1
 
 [node name="Delete" parent="Toolbar" instance=ExtResource( 10 )]
-position = Vector2( 264, 184 )
+position = Vector2( 288, 176 )
+scale = Vector2( 0.75, 0.75 )
 icon_texture = ExtResource( 23 )
 tool_type = "delete"
 tool_ability = 1
+
+[node name="RollBtn" type="Button" parent="."]
+margin_left = 440.0
+margin_top = 800.0
+margin_right = 504.0
+margin_bottom = 864.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.129412, 0.129412, 0.129412, 1 )
+text = "ROLL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceBar" type="Node2D" parent="."]
+position = Vector2( 88, 832 )
+script = ExtResource( 27 )
+
+[node name="Dice" parent="DiceBar" instance=ExtResource( 25 )]
+position = Vector2( 56, 0 )
+faces = [ ExtResource( 24 ), ExtResource( 20 ), ExtResource( 17 ) ]
+
+[node name="Dice2" parent="DiceBar" instance=ExtResource( 25 )]
+position = Vector2( 136, 0 )
+faces = [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ) ]
+
+[node name="Dice3" parent="DiceBar" instance=ExtResource( 25 )]
+position = Vector2( 296, 0 )
+faces = [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ) ]
+
+[node name="Dice4" parent="DiceBar" instance=ExtResource( 25 )]
+position = Vector2( 216, 0 )
+faces = [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ) ]
+[connection signal="button_up" from="RollBtn" to="DiceBar" method="_on_RollBtn_button_up"]
