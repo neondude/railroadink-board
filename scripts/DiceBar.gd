@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	pass # Replace with function body.
+	randomize()
 	roll_all_dice()
 
 func roll_all_dice():
